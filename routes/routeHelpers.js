@@ -29,5 +29,17 @@ module.exports = {
     const newPieces = _.cloneDeep(pieces);
     // https://en.wikipedia.org/wiki/Battleship_(game)
     res.send(newPieces);
+  },
+  resetUsers(req, res, next) {
+    const cleanBoard = _.cloneDeep(board);
+
+    req.app.set('userInfo', {
+      user1:false,
+      user2:false
+    });
+
+    console.log(app.get('userInfo'));
+    
+    res.send(cleanBoard);
   }
 };
