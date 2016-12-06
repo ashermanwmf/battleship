@@ -1,3 +1,7 @@
+.board {
+  float: right;
+}
+
 .off {
   display: inline-block;
   background-color: grey;
@@ -8,6 +12,20 @@
 .on {
   display: inline-block;
   background-color: red;
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
+.hit {
+  display: inline-block;
+  background-color: red;
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
+.miss {
+  display: inline-block;
+  background-color: blue;
   border: 1px solid black;
   height: 50px;
   width: 50px;

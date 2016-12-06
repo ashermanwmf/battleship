@@ -3,7 +3,7 @@ import { Alert }                from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import Block                    from './Block.jsx';
+import Block                    from '../containers/Block.jsx';
 import request                  from 'axios';
 
 class Board extends React.Component {
@@ -17,7 +17,8 @@ class Board extends React.Component {
           <Block 
             key={[this.props.rowIndex, index]} 
             fullIndex={[this.props.rowIndex, index]} 
-            block={block} 
+            block={block}
+            myboard={this.props.myboard} 
           />
         )}
       </div>

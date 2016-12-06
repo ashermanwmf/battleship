@@ -1,23 +1,21 @@
 import _ from 'lodash';
 
 const data = {
-  userName: ''
+  userName: '',
+  turn: false
 };
 
 export default (state = data, action) =>{
   switch(action.type){
-    case "SET_USERNAME":
+    case "SET_STATE":
       // toggle on and of the matrix
-      if(state.userName === ''){
-        //set user name return that new state
-        const newState = _.cloneDeep(state);
 
-        newstate.userName = action.payload;
+      const newState = _.cloneDeep(state);
 
-        return newState;
-      }
+      newState.userName = action.username;
+      newState.turn = action.turn;
 
-      return state;
+      return newState;
     default: 
       return state;
   }

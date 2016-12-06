@@ -14,6 +14,8 @@ app.set('userInfo', {
   user2: false
 });
 
+console.log(app.get('userInfo'));
+
 webpackMiddleWare(app);
 
 app.use(bodyParser.json()); 

@@ -1,6 +1,7 @@
-export default (userName) =>{
+export default (response) =>{
   return {
-    type: "SET_USERNAME",
-    payload: userName
+    type: "SET_STATE",
+    username: response.username,
+    turn: response.turn
   };
 };
