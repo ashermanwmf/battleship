@@ -3,6 +3,7 @@ import { Alert } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
+import Block from './Block.jsx';
 import request from 'axios';
 
 class Board extends React.Component {
@@ -11,9 +12,7 @@ class Board extends React.Component {
   }
   render() {
     return (
-      <div>
-        board
-      </div>
+      <div className={this.props.block.class}></div>
     );
   }
 }

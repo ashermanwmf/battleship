@@ -3,29 +3,27 @@ import { Alert } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Board from './components/Board.jsx';
+import Row from '../components/Row.jsx';
 import request from 'axios';
 
-class App extends React.Component {
+class Board extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
     return (
-      <div>
-
-        <Board 
-          reset={false}
-        />
+      <div className="board">
+        {this.props.gameBoard.board.map((row, index) =>
+          <Row key={index} rowIndex={index} row={row} />
+        )}
       </div>
     );
   }
 }
-
 const mapStateToProps = (state) =>{
   return {
-    score: state.score
+    gameBoard: state.gameBoard
   };
 }
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, {})(Board);

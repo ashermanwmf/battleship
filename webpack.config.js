@@ -34,12 +34,6 @@ const config = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ],
-  externals: {
-    'cheerio': 'window',
-    'react/addons': true,
-    'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': true
-  }
+  ]
 };
 module.exports = config;

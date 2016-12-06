@@ -1,5 +1,6 @@
+const { getUser, sendBoard } = require('./routeHelpers.js');
+
 module.exports = (app) => {
-  app.get('/', (req, res, next) =>{
-    res.send('hello')
-  });
+  app.get('/api/getUser/:userName', getUser, sendBoard);
+
 };

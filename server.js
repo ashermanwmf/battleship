@@ -9,6 +9,11 @@ const root = `${__dirname}/src/client/public`;
 
 app.set('port', 3000);
 
+app.set('userInfo', {
+  user1: false,
+  user2: false
+});
+
 webpackMiddleWare(app);
 
 app.use(bodyParser.json()); 
@@ -16,10 +21,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(root)); 
 
 routes(app);
+
 app.use(fallback('index.html', {root}));
 
-app.listen(app.get('port'), () =>{
+const server = app.listen(app.get('port'), () =>{
   console.log(`listening on port: ${app.get('port')}`);
 });
 
 module.exports = app;
+module.exports = server;
+require('./socketLogic');
