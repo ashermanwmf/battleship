@@ -1,6 +1,5 @@
-const { getUser, sendBoard } = require('./routeHelpers.js');
+const { setUser, sendBoard } = require('./routeHelpers.js');
 
 module.exports = (app) => {
-  app.get('/api/getUser/:userName', getUser, sendBoard);
-
+  app.get('/api/setUser/:userName', setUser, sendBoard);
 };

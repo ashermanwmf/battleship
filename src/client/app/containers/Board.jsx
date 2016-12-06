@@ -1,10 +1,10 @@
-import React from 'react';
-import { Alert } from 'react-bootstrap';
+import React                    from 'react';
+import { Alert }                from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import Row from '../components/Row.jsx';
-import request from 'axios';
+import { connect }              from 'react-redux';
+import { bindActionCreators }   from 'redux';
+import Row                      from '../components/Row.jsx';
+import request                   from 'axios';
 
 class Board extends React.Component {
   constructor(props) {

@@ -1,9 +1,9 @@
-import React from 'react';
-import { Alert } from 'react-bootstrap';
+import React                    from 'react';
+import { Alert }                from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import request from 'axios';
+import { connect }              from 'react-redux';
+import { bindActionCreators }   from 'redux';
+import request                  from 'axios';
 
 class Score extends React.Component {
   constructor(props) {

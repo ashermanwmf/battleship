@@ -1,8 +1,8 @@
-const _ = require('lodash');
-const blankBoard = require('./boards.js');
+const _                 = require('lodash');
+const { board, pieces } = require('./boards.js');
 
 module.exports = {
-  getUser(req, res, next) {
+  setUser(req, res, next) {
     if(req.params.userName === 'user1' && !req.app.get('userInfo').user1){
 
       req.app.set('userInfo', {
@@ -25,8 +25,9 @@ module.exports = {
   },
   sendBoard(req, res, next) {
     const mem = [];
-    const newBoard = _.cloneDeep(blankBoard);
+    const newBoard = _.cloneDeep(board);
+    const newPieces = _.cloneDeep(pieces);
     // https://en.wikipedia.org/wiki/Battleship_(game)
-    res.send(req.app.get('userInfo'));
+    res.send(newPieces);
   }
 };
