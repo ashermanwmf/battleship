@@ -1,0 +1,124 @@
+{
+  "board": [
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ],
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ],
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ],
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ],
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ],
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ],
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ],
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ],
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ],
+    [
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"},
+      {"toggled":false, "class":"off"}
+    ]
+  ]
+}

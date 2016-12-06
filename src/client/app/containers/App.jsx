@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { Alert } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Board from './components/Board.jsx';
 import request from 'axios';
 
 class App extends React.Component {
@@ -13,10 +13,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        hello
+
+        <Board 
+          reset={false}
+        />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) =>{
+  return {
+    score: state.score
+  };
+}
+
+export default connect(mapStateToProps, {})(App);
