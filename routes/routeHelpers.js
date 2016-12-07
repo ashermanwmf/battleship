@@ -13,6 +13,7 @@ module.exports = {
 
       req.user = 'user1';
       next();
+
     }else if(req.params.userName === 'user2' && !req.app.get('userInfo')['user2']){
 
       req.app.set('userInfo', {
@@ -22,8 +23,10 @@ module.exports = {
       
       req.user = 'user2';
       next();
+      
     }else {
-      res.status(300).send({message: 'Wrong input, try again.'});
+      res.status(300)
+        .send({message: 'Wrong input, try again.'});
     }
   },
   sendBoard(req, res, next) {
@@ -48,7 +51,8 @@ module.exports = {
 
       res.send(sendObj2);
     }else {
-      res.status(400).send({message: 'An Error Occured, Please Refresh The Page.'})
+      res.status(400)
+        .send({message: 'An Error Occured, Please Refresh The Page.'});
     }
   },
   resetUsers(req, res, next) {
@@ -65,47 +69,53 @@ module.exports = {
   checkMove(req, res, next) {
     if(req.body.username === 'user1'){
       req.user = req.body.username;
-
-      //check board two
-      const board2 = req.app.get('board2').board;
-      let block = board[req.body.index[0]][req.body.index[1]];
-
-      if(block.toggled){
-        req.move = 'hit';
-      }else{
-        req.move = 'miss';
-      }
-
-      if(block.class === 'hit'){
-        req.move = 'taken';
-      }
-
-      next();
+      req.boardName = 'board2';
     }
-
     if(req.body.username === 'user2'){
       req.user = req.body.username;
-
-      //check board two
-      const board = req.app.get('board1').board;
-      let block = board[req.body.index[0]][req.body.index[1]];
-
-      if(block.toggled){
-        req.move = 'hit';
-      }else{
-        req.move = 'miss';
-      }
-
-      if(block.class === 'hit'){
-        // its taken if the toggle is true and the class is hit instead of on or off.
-        // then use the hit logic to change the other persons board 
-        req.move = 'taken';
-      }
-
-      next();
+      req.boardName = 'board1';
     }
+    
+    //check board
+    const board = req.app.get(req.boardName).board;
+    let block = board[req.body.index[0]][req.body.index[1]];
+
+    if(block.toggled){
+      req.move = 'hit';
+    }else{
+      req.move = 'miss';
+    }
+
+    if(block.class === 'hit'){
+      req.move = 'taken';
+    }
+
+    next();
+
+    // if(req.body.username === 'user2'){
+    //   req.user = req.body.username;
+
+    //   //check board two
+    //   const board = req.app.get('board1').board;
+    //   let block = board[req.body.index[0]][req.body.index[1]];
+
+    //   if(block.toggled){
+    //     req.move = 'hit';
+    //   }else{
+    //     req.move = 'miss';
+    //   }
+
+    //   if(block.class === 'hit'){
+    //     // its taken if the toggle is true and the class is hit instead of on or off.
+    //     // then use the hit logic to change the other persons board 
+    //     req.move = 'taken';
+    //   }
+
+    //   next();
+    // }
   },
   toggleBoard(req, res, next) {
+    // change the boards where they where effected 
     console.log(req.user, req.move, req.body.index);
     res.end();
   },
