@@ -84,7 +84,7 @@ module.exports = {
     }
 
     if(req.body.username === 'user2'){
-    req.user = req.body.username;
+      req.user = req.body.username;
 
       //check board two
       const board = req.app.get('board1').board;
@@ -97,6 +97,8 @@ module.exports = {
       }
 
       if(block.class === 'hit'){
+        // its taken if the toggle is true and the class is hit instead of on or off.
+        // then use the hit logic to change the other persons board 
         req.move = 'taken';
       }
 
@@ -106,5 +108,8 @@ module.exports = {
   toggleBoard(req, res, next) {
     console.log(req.user, req.move, req.body.index);
     res.end();
+  },
+  changeScore(req, res, next) {
+    // change the score after board has been updated and turn has been updated
   }
 };
