@@ -9,7 +9,7 @@ const {
 
 module.exports = (app) => {
   // get user info and board
-  app.get('/api/setUser/:userName', setUser, sendBoard);
+  app.post('/api/setUser', setUser, sendBoard);
 
   // reset the whole game for users and boards
   app.get('/api/resetGame', resetUsers);

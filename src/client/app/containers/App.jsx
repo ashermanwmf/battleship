@@ -29,7 +29,8 @@ class App extends React.Component {
       });
   }
   setUser() {
-    request.get(`/api/setUser/${this.textInput.value}`)
+    console.log(this.textInput.value);
+    request.post('/api/setUser', {username: this.textInput.value})
       .then((response) =>{
         this.props.setUserAction(response.data);
         this.props.setBoardAction(response.data.board);
