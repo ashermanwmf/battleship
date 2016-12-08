@@ -13,9 +13,10 @@ class Block extends React.Component {
     super(props);
   }
   togglePiece() {
-    console.log(this.props.myboard)
     if(!this.props.myboard){
-      request.post('/api/makeMove', { index: this.props.finalIndex, username: this.props.userState.username })
+      request.post('/api/makeMove', 
+        {index: this.props.fullIndex, 
+        username: this.props.userState.username})
         .then((respose) =>{
           console.log(response);
         })

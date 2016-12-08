@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const data = {
-  userName: '',
+  username: '',
   turn: false
 };
 
@@ -12,8 +12,10 @@ export default (state = data, action) =>{
 
       const newState = _.cloneDeep(state);
 
-      newState.userName = action.username;
+      newState.username = action.username;
       newState.turn = action.turn;
+
+      console.log(newState, ' in reducer')
 
       return newState;
     default: 
