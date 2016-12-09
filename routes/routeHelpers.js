@@ -113,30 +113,44 @@ module.exports = {
 
   toggleBoard(req, res, next) {
     // change the boards where they where effected 
-    console.log(req.user, req.move, req.body.index);
+    new Promise((resolve, reject) =>{
+      console.log(req.user, req.move, req.body.index);
 
-    if(req.move !== 'taken'){
-      req.boardToToggle[req.body.index[0]][req.body.index[1]].class = req.move;
-      req.app.set(req.boardName, req.boardToToggle);
-    }
+      if(req.move !== 'taken'){
+        req.boardToToggle[req.body.index[0]][req.body.index[1]].class = req.move;
+        req.app.set(req.boardName, req.boardToToggle);
+      }
+      // user is who clicked and that decides which baord to update on front end
+      // move says class information and index says where to change the class info
 
-    // user is who clicked and that decides which baord to update on front end
-    // move says class information and index says where to change the class info
-    const emitObj = {
-      move: req.move,
-      index: req.body.index,
-      username: req.user
-    };
+      resolve();
+    })
+    .then(() =>{
+      next();
+    })
+    .catch((err) =>{
+      console.log(err);
 
-    io.sockets.broadcast.emit('UPDATE_BOARDS', emitObj);
-
-    next();     
+    });     
   },
 
   changeScore(req, res, next) {
     // change the score after board has been updated and turn has been updated
-    console.log('going to change the score');
+    new Promise(() =>{
+      console.log('going to change the score');
 
-    return;
+      const emitObj = {
+        move: req.move,
+        index: req.body.index,
+        username: req.user
+      };
+      
+      io.sockets.emit('UPDATE_BOARDS', emitObj);
+
+      res.send('done');
+    })
+    .catch((err) =>{
+      console.log(err);
+    });
   }
 };
