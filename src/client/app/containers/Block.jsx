@@ -16,16 +16,16 @@ class Block extends React.Component {
     super(props);
   }
   togglePiece() {
+    // change this to just sockets no request
+
     if(!this.props.myboard){
-      request.post('/api/makeMove', 
-        {index: this.props.fullIndex, 
-        username: this.props.userState.username})
-        .then((response) =>{
-          console.log(response)
-        })
-        .catch((err) =>{
-          console.log(err);
-        });
+      const sendObj = {
+        index: this.props.fullIndex, 
+        username: this.props.userState.username
+      };
+
+      socket.emit('moveMade', sendObj);
+
     }
   }
   render() {

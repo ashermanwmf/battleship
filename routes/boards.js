@@ -1,7 +1,8 @@
 module.exports = {
   "board1Start": {
+    "pieces":{"1": ["00", "01"], "2": ["91", "92", "93", "94"]},
     "board": [
-      [{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
+      [{"toggled":true, "class":"on", "id":"1"},{"toggled":true, "class":"on", "id":"1"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
@@ -10,10 +11,11 @@ module.exports = {
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
-      [{"toggled":false, "class":"off"},{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}]
+      [{"toggled":false, "class":"off"},{"toggled":true, "class":"on", "id":"2"},{"toggled":true, "class":"on", "id":"2"},{"toggled":true, "class":"on", "id":"2"},{"toggled":true, "class":"on", "id":"2"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}]
     ]
   },
   "board2Start": {
+    "pieces":{},
     "board":[
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
       [{"toggled":true, "class":"on"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
@@ -26,23 +28,5 @@ module.exports = {
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}]
     ]
-  },
-  pieces:{
-    battleship:{
-      size: 4,
-      amount: 1
-    },
-    cruiser:{
-      size: 3,
-      amount: 2
-    },
-    desroyer:{
-      size: 2,
-      amount: 3
-    },
-    submarine:{
-      size: 1,
-      amount: 4
-    }
   }
 };
