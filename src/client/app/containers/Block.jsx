@@ -7,6 +7,9 @@ import request                  from 'axios';
 import setUserAction            from '../actions/setUser';
 import setBoardAction           from '../actions/setBoard';
 
+socket.on('UPDATE_BOARDS', (data) =>{
+  console.log('this is the socket emission on toggle', data);
+});
 
 class Block extends React.Component {
   constructor(props) {
@@ -17,8 +20,8 @@ class Block extends React.Component {
       request.post('/api/makeMove', 
         {index: this.props.fullIndex, 
         username: this.props.userState.username})
-        .then((respose) =>{
-          console.log(response);
+        .then((response) =>{
+          console.log(response)
         })
         .catch((err) =>{
           console.log(err);

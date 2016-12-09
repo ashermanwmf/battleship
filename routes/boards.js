@@ -1,5 +1,5 @@
 module.exports = {
-  "board1": {
+  "board1Start": {
     "board": [
       [{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
@@ -13,7 +13,7 @@ module.exports = {
       [{"toggled":false, "class":"off"},{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}]
     ]
   },
-  "board2": {
+  "board2Start": {
     "board":[
       [{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":true, "class":"on"},{"toggled":true, "class":"on"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
       [{"toggled":true, "class":"on"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"},{"toggled":false, "class":"off"}],
