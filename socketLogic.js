@@ -8,11 +8,13 @@ io.on('connection', (socket) => {
   const {checkMove, toggleBoard, changeScore} = module.exports.updateScore; 
 
   socket.on('moveMade', (data) =>{
-    const moveData = checkMove(data);
-    const toggleData = toggleBoard(moveData);
-    const scoreData = changeScore(toggleData);
+    if(app.get('userInfo').user1 && app.get('userInfo').user2){ 
+      const moveData = checkMove(data);
+      const toggleData = toggleBoard(moveData);
+      const scoreData = changeScore(toggleData);
 
-    io.emit('UPDATE_BOARDS', scoreData);
+      io.emit('UPDATE_BOARDS', scoreData);
+    }
   });
 });
 
@@ -52,6 +54,7 @@ module.exports.updateScore = {
         let indexOfPieceIndex = pieceArray.indexOf(pieceIndex);
         pieceArray.splice(indexOfPieceIndex, indexOfPieceIndex + 1);
 
+        console.log(pieceArray);
         if(pieceArray.length === 0){
           data.move = 'sunk';
         }
@@ -62,8 +65,6 @@ module.exports.updateScore = {
   },
 
   changeScore(data){
-    // change the score after board has been updated and turn has been updated
-    // console.log(data);
     
     //username is who clicked, if they get a sunk then increase score by 1, add score to data
     data.score = app.get('score');

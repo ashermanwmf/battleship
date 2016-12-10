@@ -1,10 +1,7 @@
 const {
   setUser,
   sendBoard,
-  resetUsers,
-  checkMove,
-  toggleBoard,
-  changeScore
+  resetUsers
 } = require('./routeHelpers.js');
 
 module.exports = (app) => {

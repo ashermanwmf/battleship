@@ -5,7 +5,6 @@ import { connect }              from 'react-redux';
 import { bindActionCreators }   from 'redux';
 import Row                      from '../components/Row.jsx';
 import request                  from 'axios';
-import data                     from '../board.json';
 
 class Board extends React.Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class Board extends React.Component {
   render() {
     let className = 'blankBoard';
     let board = this.props.clickBoard.board;
-    let title = 'User2 Board (click when its your turn)';
+    let title = 'Other User Board (click when its your turn)';
 
     if(this.props.myboard){
       className = 'board';

@@ -10,7 +10,7 @@ import setUserAction            from '../actions/setUser';
 import setBoardAction           from '../actions/setBoard';
 import changeTurnAction         from '../actions/changeTurn';
 import toggleBlockAction        from '../actions/toggleBlock';
-import data                     from '../board.json';
+import setScoreAction           from '../actions/setScore';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class App extends React.Component {
 
       //change whos turn it is
       this.props.changeTurnAction(this.props.userState.username, !this.props.userState.turn);
+      this.props.setScoreAction(data.score);
     });
   }
   resetGame() {
@@ -95,6 +96,7 @@ export default connect(mapStateToProps,
     setUserAction: setUserAction,
     setBoardAction: setBoardAction,
     changeTurnAction: changeTurnAction,
-    toggleBlockAction: toggleBlockAction
+    toggleBlockAction: toggleBlockAction,
+    setScoreAction: setScoreAction
   }
 )(App);

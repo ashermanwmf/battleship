@@ -1,6 +1,6 @@
-import data from '../board.json';
+import board from '../createBoard';
 
-export default (state = data, action) =>{
+export default (state = board, action) =>{
   switch(action.type){
     case "SET_BOARD":
 
