@@ -9,29 +9,26 @@ io.on('connection', (socket) => {
 
   socket.on('moveMade', (data) =>{
     const moveData = checkMove(data);
-    // const toggleData = toggleBoard(moveData);
-    // const scoreData = changeScore(toggleData);
+    const toggleData = toggleBoard(moveData);
+    const scoreData = changeScore(toggleData);
 
-    io.emit('UPDATE_BOARDS', moveData);
+    io.emit('UPDATE_BOARDS', scoreData);
   });
 });
 
 module.exports.updateScore = { 
   checkMove(data){
-    console.log('info recieved', data, app.get('board1'), 'inside new socket file');
     if(!app.get('userInfo').user1 && !app.get('userInfo').user2) {
       return {message: 'ERROR: Not Everyone Is Logged In.'};
     }
 
     const returnObj = {};
 
-    console.log('before error', data.username, data.index);
-
     returnObj.user = data.username;
     returnObj.boardName = returnObj.user === 'user1' ? 'board2' : 'board1';
 
-    const board = app.get(returnObj.boardName).board;
-    let block = board[data.index[0]][data.index[1]];
+    const board = app.get(returnObj.boardName);
+    let block = board.board[data.index[0]][data.index[1]];
 
     returnObj.move = block.toggled ? 'hit' : 'miss';
     returnObj.move = block.class === 'hit' ? 'taken' : returnObj.move;
@@ -45,25 +42,34 @@ module.exports.updateScore = {
     // change the boards where they where effected 
     // console.log(req.user, req.move, req.body.index);
 
-    // if(data.move !== 'taken'){
-    //   data.boardToToggle[data.index[0]][data.index[1]].class = req.move;
-    //   app.set(req.boardName, req.boardToToggle);
-    // }
+    let block = data.boardToToggle.board[data.index[0]][data.index[1]];
 
+    if(data.move !== 'taken'){
+      block.class = data.move;
+
+      if(data.move === 'hit'){
+        let pieceIndex = data.index.join('');
+        let pieceArray = data.boardToToggle.pieces[block.id];
+        let indexOfPieceIndex = pieceArray.indexOf(pieceIndex);
+        pieceArray.splice(indexOfPieceIndex, indexOfPieceIndex + 1);
+
+        if(pieceArray.length === 0){
+          data.move = 'sunk';
+        }
+
+      }
+
+      // app.set(req.boardName, req.boardToToggle);
+    }
+    return data;
     // user is who clicked and that decides which baord to update on front end
     // move says class information and index says where to change the class info   
   },
 
   changeScore(data){
     // change the score after board has been updated and turn has been updated
-    console.log('going to change the score');
-
-    const emitObj = {
-      move: req.move,
-      index: req.body.index,
-      username: req.user
-    };
+    // console.log(data);
     
-    // io.sockets.emit('UPDATE_BOARDS', emitObj);
+    return data;
   }
 };

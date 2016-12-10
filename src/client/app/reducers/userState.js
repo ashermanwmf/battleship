@@ -6,16 +6,19 @@ const data = {
 };
 
 export default (state = data, action) =>{
+  const newState = _.cloneDeep(state);
+
   switch(action.type){
     case "SET_STATE":
       // toggle on and of the matrix
 
-      const newState = _.cloneDeep(state);
-
       newState.username = action.username;
       newState.turn = action.turn;
-
-      console.log(newState, ' in reducer')
+      console.log('what is the user state', newState);
+      return newState;
+    case "CHANGE_TURN":
+      newState.username = action.username;
+      newState.turn = action.turn;
 
       return newState;
     default: 

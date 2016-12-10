@@ -18,7 +18,7 @@
 }
 .hit {
   display: inline-block;
-  background-color: red;
+  background-color: purple;
   border: 1px solid black;
   height: 50px;
   width: 50px;

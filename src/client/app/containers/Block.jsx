@@ -7,10 +7,6 @@ import request                  from 'axios';
 import setUserAction            from '../actions/setUser';
 import setBoardAction           from '../actions/setBoard';
 
-socket.on('UPDATE_BOARDS', (data) =>{
-  console.log('this is the socket emission on toggle', data);
-});
-
 class Block extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +14,7 @@ class Block extends React.Component {
   togglePiece() {
     // change this to just sockets no request
 
-    if(!this.props.myboard){
+    if(!this.props.myboard && this.props.userState.turn){
       const sendObj = {
         index: this.props.fullIndex, 
         username: this.props.userState.username
