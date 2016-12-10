@@ -22,7 +22,6 @@ class Board extends React.Component {
       title = 'My Board';
     }
 
-    console.log('hello', board)
     return (
       <div className={className}>
         <h3>{title}</h3>

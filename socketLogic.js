@@ -39,11 +39,10 @@ module.exports.updateScore = {
   },
 
   toggleBoard(data){
-    // change the boards where they where effected 
-    // console.log(req.user, req.move, req.body.index);
-
+    // get the block
     let block = data.boardToToggle.board[data.index[0]][data.index[1]];
 
+    // check if already taken
     if(data.move !== 'taken'){
       block.class = data.move;
 
@@ -58,18 +57,23 @@ module.exports.updateScore = {
         }
 
       }
-
-      // app.set(req.boardName, req.boardToToggle);
     }
-    return data;
-    // user is who clicked and that decides which baord to update on front end
-    // move says class information and index says where to change the class info   
+    return data; 
   },
 
   changeScore(data){
     // change the score after board has been updated and turn has been updated
     // console.log(data);
     
+    //username is who clicked, if they get a sunk then increase score by 1, add score to data
+    data.score = app.get('score');
+
+    if(data.move === 'sunk'){
+      data.score[data.user] = data.score[data.user] + 1; 
+    }
+
+    app.set('score', data.score);
+
     return data;
   }
 };

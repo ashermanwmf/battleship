@@ -18,6 +18,12 @@ class Score extends React.Component {
         <div className="userScore">
           User 2: 0 shippes sunk
         </div>
+        <div className="key">
+          <div className='on'>ship</div>
+          <div className='off'>no ship</div>
+          <div className='hit'>hit</div>
+          <div className='miss'>miss</div>
+        </div>
       </div>
     )
   }

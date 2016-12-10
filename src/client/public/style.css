@@ -30,3 +30,10 @@
   height: 50px;
   width: 50px;
 }
+.key div {
+  margin-left: 2%;
+  width: 20%;
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}

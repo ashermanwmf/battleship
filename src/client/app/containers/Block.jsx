@@ -11,10 +11,10 @@ class Block extends React.Component {
   constructor(props) {
     super(props);
   }
-  togglePiece() {
+  togglePiece(e) {
     // change this to just sockets no request
 
-    if(!this.props.myboard && this.props.userState.turn){
+    if(!this.props.myboard && this.props.userState.turn && e.target.className === 'off'){
       const sendObj = {
         index: this.props.fullIndex, 
         username: this.props.userState.username

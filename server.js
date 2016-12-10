@@ -14,6 +14,11 @@ app.set('userInfo', {
   user2: false
 });
 
+app.set('score', {
+  user1: 0,
+  user2: 0
+});
+
 console.log(app.get('userInfo'));
 
 webpackMiddleWare(app);

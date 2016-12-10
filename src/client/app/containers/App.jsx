@@ -16,21 +16,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     socket.on('UPDATE_BOARDS', (data) =>{
-      console.log('this is the socket emission on toggle', data);
-      // i need to check which user is on this socket, if it is the user 
-      //that clicked then update their second board not the board with pieces
+      //check which user and either toggle real board or click board
+      console.log('board update', data);
       if(data.user === this.props.userState.username){
-        //this is the user that clicked and their click board should be updated
         let className = data.move === 'sunk' ? 'hit' : data.move;
         this.props.toggleBlockAction(data.index, this.props.clickBoard, className);
       }else {
-        //this is the user who is not clicked and they should take the data board and set it to new board
         this.props.setBoardAction(data.boardToToggle);
       }
 
-      console.log('inside app before change turn', this.props.userState);
+      //change whos turn it is
       this.props.changeTurnAction(this.props.userState.username, !this.props.userState.turn);
-      //if user name is user2 then set the turn to the correct user which is user 1
     });
   }
   resetGame() {
