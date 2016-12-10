@@ -19,14 +19,15 @@ app.set('score', {
   user2: 0
 });
 
-console.log(app.get('userInfo'));
-
+// live updates while editing
 webpackMiddleWare(app);
 
+// middle ware for parsing data and serving public files
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(root)); 
 
+// routes for API
 routes(app);
 
 app.use(fallback('index.html', {root}));

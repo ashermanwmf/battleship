@@ -14,8 +14,4 @@ module.exports = (app) => {
   // reset the whole game for users and boards
   app.get('/api/resetGame', resetUsers);
 
-
-  // move this to just sockets as socket logic in a file
-    // toggle the board, change the score, send that all back
-    // app.post('/api/makeMove', checkMove, toggleBoard, changeScore);
 };
