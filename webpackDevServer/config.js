@@ -7,7 +7,6 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 module.exports = (app) =>{
 
   app.use(webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath,
     stats: {
       colors: true
     },

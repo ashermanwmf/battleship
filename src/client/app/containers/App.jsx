@@ -6,11 +6,13 @@ import { bindActionCreators }   from 'redux';
 import Score                    from './Score.jsx';
 import Board                    from './Board.jsx';
 import request                  from 'axios';
+import newBoard                 from '../createBoard';
 import setUserAction            from '../actions/setUser';
 import setBoardAction           from '../actions/setBoard';
 import changeTurnAction         from '../actions/changeTurn';
 import toggleBlockAction        from '../actions/toggleBlock';
 import setScoreAction           from '../actions/setScore';
+import resetBoardsAction        from '../actions/resetBoards';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,8 +35,7 @@ class App extends React.Component {
   resetGame() {
     request.get('/api/resetGame')
       .then((response) =>{
-        console.log(response);
-        this.props.setBoardAction(data);
+        this.props.resetBoardsAction(newBoard);
         this.props.setUserAction({
           userName: '',
           turn: false
@@ -97,6 +98,7 @@ export default connect(mapStateToProps,
     setBoardAction: setBoardAction,
     changeTurnAction: changeTurnAction,
     toggleBlockAction: toggleBlockAction,
-    setScoreAction: setScoreAction
+    setScoreAction: setScoreAction,
+    resetBoardsAction: resetBoardsAction
   }
 )(App);

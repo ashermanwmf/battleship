@@ -8,4 +8,6 @@ for(let i=0;i<10;i++){
   board.board.push(newRow);
 }
 
+
+
 export default board;
