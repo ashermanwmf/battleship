@@ -20,5 +20,3 @@ render((
 ), document.getElementById('app'));
 
 module.exports = store;
-
-// <Route path='/board' activeClassName="active" component={Board}/>
