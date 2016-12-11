@@ -6,6 +6,7 @@ import { bindActionCreators }   from 'redux';
 import Score                    from './Score.jsx';
 import Board                    from './Board.jsx';
 import request                  from 'axios';
+import io                       from 'socket.io-client';
 import newBoard                 from '../createBoard';
 import setUserAction            from '../actions/setUser';
 import setBoardAction           from '../actions/setBoard';
@@ -15,9 +16,11 @@ import setScoreAction           from '../actions/setScore';
 import resetBoardsAction        from '../actions/resetBoards';
 import resetScoreAction         from '../actions/resetScore';
 
-class App extends React.Component {
+export class App extends React.Component {
   constructor(props) {
     super(props);
+    let socket = io(`http://localhost:3000`);
+    
     socket.on('UPDATE_BOARDS', (data) =>{
       //check which user and either toggle real board or click board
 
