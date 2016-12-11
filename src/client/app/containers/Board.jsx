@@ -6,7 +6,7 @@ import { bindActionCreators }   from 'redux';
 import Row                      from '../components/Row.jsx';
 import request                  from 'axios';
 
-class Board extends React.Component {
+export class Board extends React.Component {
   constructor(props) {
     super(props);
   }

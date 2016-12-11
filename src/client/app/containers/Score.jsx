@@ -5,7 +5,7 @@ import { connect }              from 'react-redux';
 import { bindActionCreators }   from 'redux';
 import request                  from 'axios';
 
-class Score extends React.Component {
+export class Score extends React.Component {
   constructor(props) {
     super(props);
   }

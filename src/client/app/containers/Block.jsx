@@ -8,7 +8,7 @@ import io                       from 'socket.io-client';
 import setUserAction            from '../actions/setUser';
 import setBoardAction           from '../actions/setBoard';
 
-class Block extends React.Component {
+export class Block extends React.Component {
   constructor(props) {
     super(props);
   }
