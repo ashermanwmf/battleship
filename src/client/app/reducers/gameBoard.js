@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _     from 'lodash';
 import board from '../createBoard';
 
 const blankBoard = _.cloneDeep(board)

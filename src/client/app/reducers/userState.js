@@ -14,7 +14,7 @@ export default (state = data, action) =>{
 
       newState.username = action.username;
       newState.turn = action.turn;
-      console.log('what is the user state', newState);
+
       return newState;
     case "CHANGE_TURN":
       newState.username = action.username;

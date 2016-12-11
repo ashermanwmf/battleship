@@ -6,12 +6,15 @@ const APP_DIR   = path.resolve(__dirname, 'src/client/app');
 const config = {
   devtool: 'source-map',
   entry: [
+    'webpack/hot/dev-server',
+    'webpack-hot-middleware/client',
     APP_DIR + '/Routes.jsx'
   ],
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
+
   module : {
     loaders : [
       {
@@ -30,12 +33,3 @@ const config = {
   ]
 };
 module.exports = config;
-
-    // 'webpack/hot/dev-server',
-    // 'webpack-hot-middleware/client',
-
-  // devServer: {
-  //   inline: true,
-  //   port: 3000,
-  //   hot: true
-  // },
