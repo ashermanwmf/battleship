@@ -1,6 +1,6 @@
-import { expect }       from 'chai';
-import userStateReducer from '../../src/client/app/reducers/userState';
-
+import { expect }           from 'chai';
+import userStateReducer     from '../../src/client/app/reducers/userState';
+import userSetStateAction   from '../../src/client/app/actions/setUser';
 
 describe('User State Reducer', () =>{
   it('should start with empty username and false turn', () =>{
@@ -22,11 +22,10 @@ describe('User State Reducer', () =>{
     expect(userStateReducer(data, {})).to.have.property('username').to.equal('');
     expect(userStateReducer(data, {})).to.have.property('turn').to.equal(false);
 
-    const actionContent = {
-      type: 'SET_STATE',
+    const actionContent = userSetStateAction({
       username: 'user1',
       turn: true
-    };
+    });
 
     expect(userStateReducer(data, actionContent)).to.have.property('username').to.equal('user1');
     expect(userStateReducer(data, actionContent)).to.have.property('turn').to.equal(true);

@@ -65,6 +65,11 @@ module.exports = {
       user1:false,
       user2:false
     });
+    
+    req.app.set('score', {
+      user1: 0,
+      user2: 0
+    });
 
     req.app.set('board1', board1Start);
     req.app.set('board2', board2Start);
