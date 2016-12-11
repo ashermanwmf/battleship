@@ -1,8 +1,9 @@
 import _     from 'lodash';
 import board from '../createBoard';
 
-export default (state = board, action) =>{
-  const blankBoard = _.cloneDeep(board);
+const blankBoard = _.cloneDeep(board);
+
+export default (state = blankBoard, action) =>{
 
   switch(action.type){
     case 'SET_BOARD':
@@ -10,8 +11,17 @@ export default (state = board, action) =>{
       return action.board;
 
     case 'RESET_BOARD':
-      console.dir('board reset', blankBoard)
-      return blankBoard;
+      const boardNew = {board: []};
+
+      for(let i=0;i<10;i++){
+        let newRow = [];
+        for(let s=0;s<10;s++){
+          newRow.push({"toggled":false, "class":"off"});
+        }
+        boardNew.board.push(newRow);
+      }
+
+      return boardNew;
     default: 
       return state;
   }

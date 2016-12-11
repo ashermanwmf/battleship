@@ -39,26 +39,26 @@ class App extends React.Component {
       this.props.setScoreAction(data.score);
     });
 
-    socket.on('RESET_GAME', () =>{
-      alert('Game has been reset');
-      this.props.resetBoardsAction(newBoard);
-      this.props.setUserAction({
-        userName: '',
-        turn: false
-      });
-      this.props.resetScoreAction();
-    });
+    // socket.on('RESET_GAME', () =>{
+    //   alert('Game has been reset');
+    //   this.props.resetBoardsAction(newBoard);
+    //   this.props.setUserAction({
+    //     userName: '',
+    //     turn: false
+    //   });
+    //   this.props.resetScoreAction();
+    // });
   }
   resetGame() {
     request.get('/api/resetGame')
       .then((response) =>{
-        socket.emit('resetGame');
-        // this.props.resetBoardsAction(newBoard);
-        // this.props.setUserAction({
-        //   userName: '',
-        //   turn: false
-        // });
-        // this.props.resetScoreAction();
+        // socket.emit('resetGame');
+        this.props.resetBoardsAction();
+        this.props.setUserAction({
+          userName: '',
+          turn: false
+        });
+        this.props.resetScoreAction();
       })
       .catch((err) =>{
         console.log(err);
