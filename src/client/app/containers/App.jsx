@@ -13,12 +13,20 @@ import changeTurnAction         from '../actions/changeTurn';
 import toggleBlockAction        from '../actions/toggleBlock';
 import setScoreAction           from '../actions/setScore';
 import resetBoardsAction        from '../actions/resetBoards';
+import resetScoreAction         from '../actions/resetScore';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     socket.on('UPDATE_BOARDS', (data) =>{
       //check which user and either toggle real board or click board
+
+      if(data.move === 'win'){
+        alert(`${data.user} won the game. Game now reseting.`);
+        this.resetGame();
+        return;
+      }
+
       if(data.user === this.props.userState.username){
         let className = data.move === 'sunk' ? 'hit' : data.move;
         this.props.toggleBlockAction(data.index, this.props.clickBoard, className);
@@ -30,15 +38,27 @@ class App extends React.Component {
       this.props.changeTurnAction(this.props.userState.username, !this.props.userState.turn);
       this.props.setScoreAction(data.score);
     });
+
+    socket.on('RESET_GAME', () =>{
+      alert('Game has been reset');
+      this.props.resetBoardsAction(newBoard);
+      this.props.setUserAction({
+        userName: '',
+        turn: false
+      });
+      this.props.resetScoreAction();
+    });
   }
   resetGame() {
     request.get('/api/resetGame')
       .then((response) =>{
-        this.props.resetBoardsAction(newBoard);
-        this.props.setUserAction({
-          userName: '',
-          turn: false
-        });
+        socket.emit('resetGame');
+        // this.props.resetBoardsAction(newBoard);
+        // this.props.setUserAction({
+        //   userName: '',
+        //   turn: false
+        // });
+        // this.props.resetScoreAction();
       })
       .catch((err) =>{
         console.log(err);
@@ -50,6 +70,7 @@ class App extends React.Component {
       .then((response) =>{
         this.props.setUserAction(response.data);
         this.props.setBoardAction(response.data.board);
+        this.textInput.value = '';
       })
       .catch((err) =>{
         console.log(err);
@@ -98,6 +119,7 @@ export default connect(mapStateToProps,
     changeTurnAction: changeTurnAction,
     toggleBlockAction: toggleBlockAction,
     setScoreAction: setScoreAction,
-    resetBoardsAction: resetBoardsAction
+    resetBoardsAction: resetBoardsAction,
+    resetScoreAction: resetScoreAction
   }
 )(App);

@@ -5,7 +5,7 @@ const io     = require('socket.io').listen(server);
 // connect to users with socket
 io.on('connection', (socket) => {
   console.log('user connected');
-  const {checkMove, toggleBoard, changeScore} = module.exports.updateScore; 
+  const { checkMove, toggleBoard, changeScore } = module.exports.updateScore; 
 
   socket.on('moveMade', (data) =>{
     if(app.get('userInfo').user1 && app.get('userInfo').user2){ 
@@ -15,6 +15,10 @@ io.on('connection', (socket) => {
 
       io.emit('UPDATE_BOARDS', scoreData);
     }
+  });
+
+  socket.on('resetGame', () =>{
+    io.emit('RESET_GAME');
   });
 });
 
@@ -54,13 +58,19 @@ module.exports.updateScore = {
         let indexOfPieceIndex = pieceArray.indexOf(pieceIndex);
         pieceArray.splice(indexOfPieceIndex, indexOfPieceIndex + 1);
 
-        console.log(pieceArray);
         if(pieceArray.length === 0){
           data.move = 'sunk';
+          delete data.boardToToggle.pieces[block.id];
         }
 
+        const keysLeft = Object.keys(data.boardToToggle.pieces);
+
+        if(keysLeft.length === 0){
+          data.move = 'win';
+        }
       }
     }
+
     return data; 
   },
 

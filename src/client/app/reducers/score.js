@@ -8,6 +8,8 @@ export default (state = data, action) =>{
   switch(action.type){
     case 'CHANGE_SCORE':
       return action.payload;
+    case 'RESET_SCORE':
+      return data;
     default: 
       return state;
   }

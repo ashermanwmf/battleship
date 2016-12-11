@@ -1,5 +1,6 @@
 import { expect }   from 'chai';
 import scoreReducer from '../../src/client/app/reducers/score';
+import changeScore  from '../../src/client/app/actions/setScore'
 
 
 describe('Score Reducer', () =>{
@@ -32,6 +33,23 @@ describe('Score Reducer', () =>{
 
     expect(scoreReducer(data, actionContent)).to.have.property('user1').to.equal(1);
     expect(scoreReducer(data, actionContent)).to.have.property('user2').to.equal(2);
+  });
+
+  it('should reset score', () =>{
+    const data = {
+      user1: 1,
+      user2: 2
+    };
+
+    expect(scoreReducer(data, {})).to.have.property('user1').to.equal(1);
+    expect(scoreReducer(data, {})).to.have.property('user2').to.equal(2);
+
+    const actionContent = {
+      type: 'RESET_SCORE',
+    };
+
+    expect(scoreReducer(data, actionContent)).to.have.property('user1').to.equal(0);
+    expect(scoreReducer(data, actionContent)).to.have.property('user2').to.equal(0);
   });
 
   it('should fail with wrong action content', () =>{

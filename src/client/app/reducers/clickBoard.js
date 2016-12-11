@@ -1,9 +1,9 @@
 import _     from 'lodash';
 import board from '../createBoard';
 
-const blankBoard = _.cloneDeep(board)
-
 export default (state = board, action) =>{
+  const blankBoard = _.cloneDeep(board)
+  
   switch(action.type){
     case 'TOGGLE_PIECE':
       //change the board and retur nit with action.index
@@ -11,6 +11,7 @@ export default (state = board, action) =>{
 
       return action.board;
     case 'RESET_BOARD':
+      console.dir('board reset', blankBoard)
       return blankBoard;
     default: 
       return state;
