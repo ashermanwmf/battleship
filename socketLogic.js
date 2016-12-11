@@ -70,6 +70,8 @@ module.exports.updateScore = {
         }
       }
     }
+    
+    app.set(data.boardName, data.boardToToggle);
 
     return data; 
   },

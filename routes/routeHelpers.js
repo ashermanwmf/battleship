@@ -6,8 +6,8 @@ module.exports = {
     if(req.body.username === 'user1' && !req.app.get('userInfo')['user1']){
 
       req.app.set('userInfo', {
-        user1:true,
-        user2:req.app.get('userInfo').user2
+        user1: true,
+        user2: req.app.get('userInfo').user2
       });
 
       req.user = 'user1';
@@ -16,8 +16,8 @@ module.exports = {
     }else if(req.body.username === 'user2' && !req.app.get('userInfo')['user2']){
 
       req.app.set('userInfo', {
-        user1:req.app.get('userInfo').user1,
-        user2:true
+        user1: req.app.get('userInfo').user1,
+        user2: true
       });
       
       req.user = 'user2';
