@@ -1,7 +1,7 @@
-import { expect }   from 'chai';
-import scoreReducer from '../../src/client/app/reducers/score';
-import changeScore  from '../../src/client/app/actions/setScore'
-
+import { expect }         from 'chai';
+import scoreReducer       from '../../src/client/app/reducers/score';
+import changeScoreAction  from '../../src/client/app/actions/setScore';
+import resetScoreAction   from '../../src/client/app/actions/resetScore';
 
 describe('Score Reducer', () =>{
   it('should start with score of 0, 0', () =>{
@@ -23,13 +23,10 @@ describe('Score Reducer', () =>{
     expect(scoreReducer(data, {})).to.have.property('user1').to.equal(0);
     expect(scoreReducer(data, {})).to.have.property('user2').to.equal(0);
 
-    const actionContent = {
-      type: 'CHANGE_SCORE',
-      payload: {
-        user1: 1,
-        user2: 2
-      }
-    };
+    const actionContent = changeScoreAction({
+      user1: 1,
+      user2: 2
+    });
 
     expect(scoreReducer(data, actionContent)).to.have.property('user1').to.equal(1);
     expect(scoreReducer(data, actionContent)).to.have.property('user2').to.equal(2);
@@ -44,9 +41,7 @@ describe('Score Reducer', () =>{
     expect(scoreReducer(data, {})).to.have.property('user1').to.equal(1);
     expect(scoreReducer(data, {})).to.have.property('user2').to.equal(2);
 
-    const actionContent = {
-      type: 'RESET_SCORE',
-    };
+    const actionContent = resetScoreAction();
 
     expect(scoreReducer(data, actionContent)).to.have.property('user1').to.equal(0);
     expect(scoreReducer(data, actionContent)).to.have.property('user2').to.equal(0);
