@@ -60,11 +60,18 @@ describe('/api/resetGame', function() {
       user2: true
     });
 
+    this.app.set('score', {
+      user1: 1,
+      user2: 3
+    });
+
     request(this.app)
       .get('/api/resetGame')
       .then((res) =>{
         expect(res.body.user1).toEqual(false);
         expect(res.body.user2).toEqual(false);
+        expect(this.app.get('score').user1).toEqual(0);
+        expect(this.app.get('score').user2).toEqual(0);
         done();
       })
       .catch(done.fail);
