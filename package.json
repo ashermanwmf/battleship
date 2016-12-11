@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "build": "webpack",
-    "testServer": "jasmine",
+    "testServer": "NODE_ENV=test ./node_modules/.bin/jasmine-node spec",
     "testClient": "mocha spec/client/.setup.js spec/client/*-spec.jsx"
   },
   "author": "",
@@ -47,8 +47,10 @@
     "babel-register": "^6.18.0",
     "chai": "^3.5.0",
     "jasmine": "^2.5.2",
+    "jasmine-node": "^1.14.5",
     "jsdom": "^9.8.3",
     "mocha": "^3.2.0",
+    "request": "^2.79.0",
     "supertest": "^2.0.1"
   }
 }

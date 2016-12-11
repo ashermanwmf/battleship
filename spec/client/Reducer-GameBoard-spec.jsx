@@ -63,4 +63,22 @@ describe('Game Board Reducer', () =>{
     expect(toggleArr.indexOf(true)).to.equal(-1);
     expect(classArr.indexOf('on')).to.equal(-1);
   });
+  it('should fail with wrong action content', () =>{
+    const board = _.cloneDeep(createBoard);
+
+    const reducerOutput = gameBoardReducer(board, {});
+
+    const toggleArr = [];
+    const classArr = [];
+
+    for(let row of reducerOutput.board){
+      for(let block of row){
+        toggleArr.push(block.toggled);
+        classArr.push(block.class);
+      }
+    }
+
+    expect(toggleArr.indexOf(true)).to.equal(-1);
+    expect(classArr.indexOf('on')).to.equal(-1);
+  });
 });

@@ -5,8 +5,7 @@ const {
 } = require('./routeHelpers.js');
 
 module.exports = (app) => {
-
-
+  // access headers
   app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');

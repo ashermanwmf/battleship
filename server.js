@@ -20,7 +20,10 @@ app.set('score', {
 });
 
 // live updates while editing
-webpackMiddleWare(app);
+if(process.env.NODE_ENV !== 'test'){
+  webpackMiddleWare(app); 
+}
+
 
 // middle ware for parsing data and serving public files
 app.use(bodyParser.json()); 
@@ -38,5 +41,6 @@ const server = app.listen(app.get('port'), () =>{
 
 module.exports.app = app;
 module.exports.server = server;
-require('./socketLogic');
-
+if(process.env.NODE_ENV !== 'test'){
+  require('./socketLogic');
+}

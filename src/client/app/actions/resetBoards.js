@@ -1,5 +1,5 @@
 export default () =>{
   return {
-    type: "RESET_BOARD"
+    type: 'RESET_BOARD'
   };
 };

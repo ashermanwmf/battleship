@@ -23,13 +23,18 @@ describe('Game Board Reducer', () =>{
     expect(classArr.indexOf('on')).to.equal(-1);
   });
 
-  it('should return a reset board', () =>{
+  it('should return a reset board after setting a board', () =>{
     const board = _.cloneDeep(createBoard);
 
-    let reducerOutput = clickBoardReducer(board, {});
+    board.board[0][0].toggled = false;
+    board.board[0][0].class = 'miss';
 
-    reducerOutput.board[0][0].toggled = false;
-    reducerOutput.board[0][0].class = 'miss';
+    let actionContent = {
+      type: 'SET_BOARD',
+      board: board
+    };
+
+    let reducerOutput = clickBoardReducer(board, actionContent);
 
     let toggleArr = [];
     let classArr = [];
@@ -44,7 +49,7 @@ describe('Game Board Reducer', () =>{
     expect(toggleArr.indexOf(false)).to.equal(0);
     expect(classArr.indexOf('miss')).to.equal(0);
 
-    const actionContent = {
+    actionContent = {
       type: 'RESET_BOARD'
     };
 
@@ -87,5 +92,30 @@ describe('Game Board Reducer', () =>{
     }
 
     expect(classArr.indexOf('hit')).to.equal(0);
+  });
+
+  it('should fail with wrong action content', () =>{
+    const board = _.cloneDeep(createBoard);
+
+    const actionContent = {
+      type: 'TOGGLE_PIECE',
+      board: board,
+      index: [0,0],
+      classNames: 'hit'
+    };
+
+    const reducerOutput = clickBoardReducer(board, actionContent);
+
+    const toggleArr = [];
+    const classArr = [];
+
+    for(let row of reducerOutput.board){
+      for(let block of row){
+        toggleArr.push(block.toggled);
+        classArr.push(block.class);
+      }
+    }
+
+    expect(classArr.indexOf('hit')).to.equal(-1);
   });
 });

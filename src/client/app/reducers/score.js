@@ -6,7 +6,7 @@ const data = {
 export default (state = data, action) =>{
 
   switch(action.type){
-    case "CHANGE_SCORE":
+    case 'CHANGE_SCORE':
       return action.payload;
     default: 
       return state;

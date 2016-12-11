@@ -19,7 +19,6 @@ class App extends React.Component {
     super(props);
     socket.on('UPDATE_BOARDS', (data) =>{
       //check which user and either toggle real board or click board
-      console.log('board update', data);
       if(data.user === this.props.userState.username){
         let className = data.move === 'sunk' ? 'hit' : data.move;
         this.props.toggleBlockAction(data.index, this.props.clickBoard, className);
