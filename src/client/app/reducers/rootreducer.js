@@ -6,6 +6,7 @@ import clickBoard          from './clickBoard';
 import score               from './score';
 
 const rootReducer = combineReducers({
+  routing: routerReducer,
   gameBoard: gameBoard,
   userState: userState,
   clickBoard: clickBoard,

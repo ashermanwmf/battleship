@@ -1,8 +1,6 @@
 import React                    from 'react';
 import { Alert }                from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
 import Block                    from '../containers/Block.jsx';
 import request                  from 'axios';
 
