@@ -8,13 +8,14 @@ import io                       from 'socket.io-client';
 import setUserAction            from '../actions/setUser';
 import setBoardAction           from '../actions/setBoard';
 
+let socket = io(`http://localhost:3000`);
+
 export class Block extends React.Component {
   constructor(props) {
     super(props);
   }
   togglePiece(e) {
     // change this to just sockets no request
-    let socket = io(`http://localhost:3000`);
 
     if(!this.props.myboard && this.props.userState.turn && e.target.className === 'off'){
       const sendObj = {

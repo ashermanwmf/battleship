@@ -16,11 +16,12 @@ import setScoreAction           from '../actions/setScore';
 import resetBoardsAction        from '../actions/resetBoards';
 import resetScoreAction         from '../actions/resetScore';
 
+let socket = io(`http://localhost:3000`);
+
 export class App extends React.Component {
   constructor(props) {
     super(props);
-    let socket = io(`http://localhost:3000`);
-    
+
     socket.on('UPDATE_BOARDS', (data) =>{
       //check which user and either toggle real board or click board
 
