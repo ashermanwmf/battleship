@@ -8,8 +8,6 @@ import io                       from 'socket.io-client';
 import setUserAction            from '../actions/setUser';
 import setBoardAction           from '../actions/setBoard';
 
-let socket = io(`http://localhost:3000`);
-
 export class Block extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +21,7 @@ export class Block extends React.Component {
         username: this.props.userState.username
       };
 
-      socket.emit('moveMade', sendObj);
+      this.props.socket.emit('moveMade', sendObj);
 
     }
   }

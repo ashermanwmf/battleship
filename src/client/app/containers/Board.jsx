@@ -25,7 +25,7 @@ export class Board extends React.Component {
       <div className={className}>
         <h3>{title}</h3>
         {board.map((row, index) =>
-          <Row key={index} rowIndex={index} row={row} myboard={this.props.myboard}/>
+          <Row key={index} rowIndex={index} row={row} myboard={this.props.myboard} socket={this.props.socket}/>
         )}
       </div>
     );

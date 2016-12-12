@@ -16,7 +16,8 @@ class Board extends React.Component {
             key={[this.props.rowIndex, index]} 
             fullIndex={[this.props.rowIndex, index]} 
             block={block}
-            myboard={this.props.myboard} 
+            myboard={this.props.myboard}
+            socket={this.props.socket} 
           />
         )}
       </div>

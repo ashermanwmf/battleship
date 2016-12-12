@@ -99,10 +99,12 @@ export class App extends React.Component {
         <Board 
           reset={false}
           myboard={true}
+          socket={socket}
         />
         <Board 
           reset={false}
           myboard={false}
+          socket={socket}
         />
       </div>
     );
