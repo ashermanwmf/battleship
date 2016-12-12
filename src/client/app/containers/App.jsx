@@ -26,7 +26,7 @@ export class App extends React.Component {
       //check which user and either toggle real board or click board
 
       if(data.move === 'win'){
-        alert(`${data.user} won the game. Game now reseting.`);
+        alert(`${data.user} won the game. Game now resetting.`);
         this.resetGame();
         return;
       }
