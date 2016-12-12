@@ -6,7 +6,7 @@
 4. Once Webpack builds open app in two tabs
 5. In one tab submit 'user1' with the input box
 6. In other table submit 'user2' with the input box
-7. user1 has the first turn
+7. 'user1' has the first turn
 8. Start playing by clicking on the 'Other User Board' board
 9. Switch between users within browser tabs when its their turn
 10. Game resets when someone wins
