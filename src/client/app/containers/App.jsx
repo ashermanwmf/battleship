@@ -89,7 +89,7 @@ export class App extends React.Component {
 
     return (
       <div>
-        <h2>My UserName is: {this.props.userState.username} and it is {turn}</h2>
+        <h2>My User Name is: {this.props.userState.username} and it is {turn}</h2>
         <button onClick={this.resetGame.bind(this)}>Reset</button>
         <input type="text" name="username" ref={(input) =>{ this.textInput = input }}/>
         <button onClick={this.setUser.bind(this)}>Submit</button>

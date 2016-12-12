@@ -13,10 +13,10 @@ export class Score extends React.Component {
     return (
        <div className="score">
         <div className="userScore">
-          <h3>User 1: {this.props.score.user1} shippes sunk</h3>
+          <h3>User 1: {this.props.score.user1} ships sunk</h3>
         </div>
         <div className="userScore">
-          <h3>User 2: {this.props.score.user2} shippes sunk</h3>
+          <h3>User 2: {this.props.score.user2} ships sunk</h3>
         </div>
         <div className="key">
           <div className='on'>ship</div>
