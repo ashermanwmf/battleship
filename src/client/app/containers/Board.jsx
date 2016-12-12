@@ -13,7 +13,7 @@ export class Board extends React.Component {
   render() {
     let className = 'blankBoard';
     let board = this.props.clickBoard.board;
-    let title = 'Other User Board (click when its your turn)';
+    let title = 'Other Users Board (click when it is your turn)';
 
     if(this.props.myboard){
       className = 'board';
