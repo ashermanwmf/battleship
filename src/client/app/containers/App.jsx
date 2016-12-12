@@ -59,7 +59,7 @@ export class App extends React.Component {
         // socket.emit('resetGame');
         this.props.resetBoardsAction();
         this.props.setUserAction({
-          userName: '',
+          username: '',
           turn: false
         });
         this.props.resetScoreAction();
@@ -82,14 +82,19 @@ export class App extends React.Component {
   }
   render() {
     let turn = 'NOT my turn';
+    let name = 'not set';
 
-    if (this.props.userState.turn){
+    if(this.props.userState.turn){
       turn = "my turn";
+    }
+
+    if(this.props.userState.username !== ''){
+      name = this.props.userState.username
     }
 
     return (
       <div>
-        <h2>My User Name is: {this.props.userState.username} and it is {turn}</h2>
+        <h2>My User Name is: {name} and it is {turn}</h2>
         <button onClick={this.resetGame.bind(this)}>Reset</button>
         <input type="text" name="username" ref={(input) =>{ this.textInput = input }}/>
         <button onClick={this.setUser.bind(this)}>Submit</button>
