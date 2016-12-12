@@ -8,8 +8,8 @@
 6. In other tab submit 'user2' with the input box
 7. 'user1' takes the first turn
 8. Start playing by clicking on the 'Other User's Board'
-9. Switch between users within browser tabs when it is the other player’s turn
+9. Switch between users within browser tabs when it is the other user's turn
 10. Game resets when someone wins
-11. Reset game on both tabs with 'reset button' to play again
+11. Reset game on both tabs with 'reset button' to start again
 12. Repeat process starting at step 4 and continue until someone wins again
 13. Have fun 
